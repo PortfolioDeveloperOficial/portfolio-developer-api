@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  db:
+    container_name: portfoliodeveloper-db
+    image: postgres:15
+    environment:
+      POSTGRES_DB: portfoliodeveloper
+      POSTGRES_USER: portfoliodeveloper
+      POSTGRES_PASSWORD: portfoliodeveloper
+    ports:
+      - "5432:5432"

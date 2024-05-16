@@ -1,0 +1,12 @@
+### Auth SignUp
+POST http://localhost:8080/sign-up
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Luiz Fernandes Oliveira",
+  "email": "luizfernandesoliveiraoficial@gmail.com",
+  "code": "123123",
+  "pdi": "asdasda",
+  "phone": "11999999999"
+}
