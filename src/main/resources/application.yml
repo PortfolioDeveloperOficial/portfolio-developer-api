@@ -12,3 +12,10 @@ spring:
     user: ${DB_POSTGRESQL_USER:portfoliodeveloper}
     password: ${DB_POSTGRESQL_PASS:portfoliodeveloper}
     baseline-on-migrate: true
+  notification:
+    email:
+      enabled: ${NOTIFICATION_EMAIL_ENABLED:true}
+      host: ${NOTIFICATION_EMAIL_HOST:smtp.gmail.com}
+      port: ${NOTIFICATION_EMAIL_PORT:587}
+      username: ${NOTIFICATION_EMAIL_USERNAME}
+      password: ${NOTIFICATION_EMAIL_PASSWORD}

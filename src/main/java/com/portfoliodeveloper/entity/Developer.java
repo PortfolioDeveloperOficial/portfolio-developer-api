@@ -6,31 +6,32 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDate;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.UUID;
-
-@Data
+@Getter
 @Builder
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "developers")
 public class Developer {
-  @Id
-  private UUID id;
+  @Id private UUID id;
   private String pdi;
   private String name;
   private String email;
   private String code;
   private String phones;
   private LocalDate birthDate;
+
   @Enumerated(EnumType.STRING)
   private Gender gender;
+
   private String photo;
   private String bio;
   private String street;
@@ -50,7 +51,7 @@ public class Developer {
         .name(dto.getName())
         .email(dto.getEmail())
         .code(dto.getCode())
-        .phones(dto.getPhones())
+        .phones(dto.getPhone())
         .birthDate(dto.getBirthDate())
         .gender(dto.getGender())
         .photo(dto.getImageUrl())
@@ -75,7 +76,7 @@ public class Developer {
     private String name;
     private String email;
     private String code;
-    private String phones;
+    private String phone;
     private LocalDate birthDate;
     private Gender gender;
     private String imageUrl;
