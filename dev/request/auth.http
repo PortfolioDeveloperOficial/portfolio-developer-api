@@ -1,12 +1,22 @@
 ### Auth SignUp
-POST http://localhost:8080/sign-up
+POST http://localhost:8080/api/v1//sign-up
 Accept: application/json
 Content-Type: application/json
 
 {
   "name": "Luiz Fernandes Oliveira",
-  "email": "luizfernandesoliveiraoficial2@gmail.com",
+  "email": "luizfernandesoliveiraoficial@gmail.com",
   "code": "123123",
   "pdi": "asdasda",
   "phone": "11999999999"
+}
+
+### Auth SignConfirm
+POST http://localhost:8080/api/v1/sign-confirm
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "luizfernandesoliveiraoficial@gmail.com",
+  "code": "123123"
 }
