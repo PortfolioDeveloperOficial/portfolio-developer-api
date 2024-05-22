@@ -19,3 +19,15 @@ spring:
       port: ${NOTIFICATION_EMAIL_PORT:587}
       username: ${NOTIFICATION_EMAIL_USERNAME}
       password: ${NOTIFICATION_EMAIL_PASSWORD}
+  documentation:
+    contact:
+      name: Luiz Fernando Oliveira
+      email: luizfernandesoliveiraoficial@contaazul.com
+    info:
+      title: Portfolio Developer
+      description: API to portfolio for a developer
+      version: 1.0.0
+      termsOfService: https://www.apache.org/licenses/LICENSE-2.0
+    license:
+      name: Apache License 2.0
+      url: https://www.apache.org/licenses/LICENSE-2.0
