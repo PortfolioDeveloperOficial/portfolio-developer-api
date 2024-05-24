@@ -24,9 +24,9 @@ public class SignUpController implements Resource {
   @Operation(summary = "Register a new developer")
   @ApiResponses(
       value = {
-          @ApiResponse(responseCode = "201", description = "SignUp successfully created"),
-          @ApiResponse(responseCode = "400", description = "A validation error was thrown"),
-          @ApiResponse(responseCode = "500", description = "Internal server error")
+        @ApiResponse(responseCode = "201", description = "SignUp successfully created"),
+        @ApiResponse(responseCode = "400", description = "A validation error was thrown"),
+        @ApiResponse(responseCode = "500", description = "Internal server error")
       })
   @ResponseStatus(HttpStatus.CREATED)
   public void execute(@RequestBody final Developer.DTO dto) {
