@@ -3,6 +3,7 @@ package com.portfoliodeveloper.exception;
 public class BadRequestException extends RuntimeException {
   public static final String DEVELOPER_ALREADY_EXISTS = "Developer already exists";
   public static final String DEVELOPER_NOT_EXISTS = "Developer does not exists";
+  public static final String BAD_CREDENTIALS = "Credentials invalid";
 
   private BadRequestException(final String message) {
     super(message);
@@ -14,5 +15,9 @@ public class BadRequestException extends RuntimeException {
 
   public static BadRequestException developerNotFound() {
     return new BadRequestException(DEVELOPER_NOT_EXISTS);
+  }
+
+  public static BadRequestException badCredentials() {
+    return new BadRequestException(BAD_CREDENTIALS);
   }
 }

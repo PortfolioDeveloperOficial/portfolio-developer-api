@@ -40,6 +40,11 @@
             <artifactId>documentation</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>br.com.senioritymeter</groupId>
+            <artifactId>security</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>

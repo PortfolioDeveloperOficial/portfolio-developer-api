@@ -31,3 +31,6 @@ spring:
     license:
       name: Apache License 2.0
       url: https://www.apache.org/licenses/LICENSE-2.0
+  security:
+    jwt:
+      secret: ${SECURITY_JWT_SECRET:4885702d-3b3f-4b2e-9fc3-0022fc2bfee6}

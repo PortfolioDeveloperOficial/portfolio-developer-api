@@ -1,5 +1,6 @@
 package com.portfoliodeveloper.controller.auth;
 
+import br.com.senioritymeter.security.valueobject.Token;
 import com.portfoliodeveloper.controller.Resource;
 import com.portfoliodeveloper.entity.Developer;
 import com.portfoliodeveloper.service.developer.ConfirmDeveloperService;
@@ -26,7 +27,7 @@ public class SignConfirmController implements Resource {
         @ApiResponse(responseCode = "400", description = "A validation error was thrown"),
         @ApiResponse(responseCode = "500", description = "Internal server error")
       })
-  public String execute(@RequestBody Developer.DTO dto) {
+  public Token execute(@RequestBody Developer.DTO dto) {
     return this.confirmDeveloperService.execute(dto);
   }
 }

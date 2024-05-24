@@ -2,6 +2,7 @@ package com.portfoliodeveloper.service.developer;
 
 import br.com.senioritymeter.notification.enumeration.NotificationType;
 import br.com.senioritymeter.notification.interaction.NotificationCreation;
+import br.com.senioritymeter.security.gateway.SMPasswordEncoder;
 import com.portfoliodeveloper.entity.Developer;
 import com.portfoliodeveloper.exception.BadRequestException;
 import com.portfoliodeveloper.repository.DeveloperRepository;
@@ -15,10 +16,12 @@ import org.springframework.stereotype.Service;
 public class CreateDeveloperService {
   private final DeveloperRepository developerRepository;
   private final NotificationCreation notificationCreation;
+  private final SMPasswordEncoder passwordEncoder;
 
   public void execute(final Developer.DTO dto) {
     String code = CodeGenerator.generate();
-    dto.setCode(code);
+    dto.setCode(passwordEncoder.get().encode(code));
+    System.out.println("CODE: " + code);
     final Developer developer = Developer.create(dto);
     if (developerRepository.existsByEmail(developer.getEmail())) {
       throw BadRequestException.developerAlreadyExists();
