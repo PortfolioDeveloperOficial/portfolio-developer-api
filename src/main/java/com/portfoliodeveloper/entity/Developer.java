@@ -13,6 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Builder
@@ -25,7 +26,7 @@ public class Developer {
   private String pdi;
   private String name;
   private String email;
-  private String code;
+  @Setter private String code;
   private String phones;
   private LocalDate birthDate;
 

@@ -17,8 +17,8 @@ spring:
       enabled: ${NOTIFICATION_EMAIL_ENABLED:true}
       host: ${NOTIFICATION_EMAIL_HOST:smtp.gmail.com}
       port: ${NOTIFICATION_EMAIL_PORT:587}
-      username: ${NOTIFICATION_EMAIL_USERNAME}
-      password: ${NOTIFICATION_EMAIL_PASSWORD}
+      username: ${NOTIFICATION_EMAIL_USERNAME:username}
+      password: ${NOTIFICATION_EMAIL_PASSWORD:password}
   documentation:
     contact:
       name: Luiz Fernando Oliveira

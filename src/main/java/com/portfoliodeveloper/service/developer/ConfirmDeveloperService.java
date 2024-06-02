@@ -5,7 +5,6 @@ import br.com.senioritymeter.security.interaction.GenerateToken;
 import br.com.senioritymeter.security.valueobject.Token;
 import com.portfoliodeveloper.entity.Developer;
 import com.portfoliodeveloper.exception.BadRequestException;
-import com.portfoliodeveloper.repository.DeveloperRepository;
 import java.time.Instant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,24 +12,16 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ConfirmDeveloperService {
-  private final DeveloperRepository developerRepository;
   private final AuthenticateUser authenticateUser;
   private final GenerateToken generateToken;
+  private final RetrieveDeveloperService retrieveDeveloperService;
 
   public Token execute(final Developer.DTO dto) {
-    var developer = this.retriveDeveloper(dto);
+    var developer = this.retrieveDeveloperService.execute(dto);
 
     this.authenticate(Developer.create(dto));
 
     return this.generateToken(developer);
-  }
-
-  private Developer retriveDeveloper(final Developer.DTO dto) {
-    var developer = developerRepository.findByEmail(dto.getEmail());
-    if (developer.isEmpty()) {
-      throw BadRequestException.developerNotFound();
-    }
-    return developer.get();
   }
 
   private void authenticate(Developer developer) {

@@ -10,6 +10,15 @@ Content-Type: application/json
   "phone": "11999999999"
 }
 
+### Auth SignIn
+POST http://localhost:8080/api/v1/sign-in
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "luizfernandesoliveiraoficial@gmail.com"
+}
+
 ### Auth SignConfirm
 POST http://localhost:8080/api/v1/sign-confirm
 Accept: application/json
@@ -17,5 +26,5 @@ Content-Type: application/json
 
 {
   "email": "luizfernandesoliveiraoficial@gmail.com",
-  "code": "396451"
+  "code": "-29658"
 }

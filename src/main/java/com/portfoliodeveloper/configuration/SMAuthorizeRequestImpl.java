@@ -16,6 +16,7 @@ public class SMAuthorizeRequestImpl implements SMAuthorizeRequest {
       AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry
           request) {
     request.requestMatchers(Resource.SIGN_UP).permitAll();
+    request.requestMatchers(Resource.SIGN_IN).permitAll();
     request.requestMatchers(Resource.SIGN_CONFIRM).permitAll();
     request.anyRequest().authenticated();
   }
