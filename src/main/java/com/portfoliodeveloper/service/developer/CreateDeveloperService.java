@@ -18,6 +18,7 @@ public class CreateDeveloperService {
   public void execute(final Developer.DTO dto) {
     String code = CodeGenerator.generate();
     dto.setCode(this.passwordEncoder.get().encode(code));
+    dto.setPdi("");
     final Developer developer = Developer.create(dto);
     if (this.developerRepository.existsByEmail(developer.getEmail())) {
       throw BadRequestException.developerAlreadyExists();

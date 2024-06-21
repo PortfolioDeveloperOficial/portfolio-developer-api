@@ -1,9 +1,9 @@
 package com.portfoliodeveloper.exception;
 
 public class BadRequestException extends RuntimeException {
-  public static final String DEVELOPER_ALREADY_EXISTS = "Developer already exists";
-  public static final String DEVELOPER_NOT_EXISTS = "Developer does not exists";
-  public static final String BAD_CREDENTIALS = "Credentials invalid";
+  public static final String DEVELOPER_ALREADY_EXISTS = "Desenvolvedor já existe com este e-mail";
+  public static final String DEVELOPER_NOT_EXISTS = "Desenvolvedor não existe com este e-mail";
+  public static final String BAD_CREDENTIALS = "Código não confere";
 
   private BadRequestException(final String message) {
     super(message);
