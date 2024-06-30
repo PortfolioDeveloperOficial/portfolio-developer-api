@@ -6,7 +6,7 @@ Content-Type: application/json
 {
   "name": "Luiz Fernandes Oliveira",
   "email": "luizfernandesoliveiraoficial@gmail.com",
-  "pdi": "asdasda",
+  "pdi": "123123123123",
   "phone": "11999999999"
 }
 
@@ -16,7 +16,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "l2uizfernandesoliveiraoficial@gmail.com"
+  "email": "luizfernandesoliveiraoficial@gmail.com"
 }
 
 ### Auth SignConfirm
@@ -26,5 +26,5 @@ Content-Type: application/json
 
 {
   "email": "luizfernandesoliveiraoficial@gmail.com",
-  "code": "-29658"
+  "code": "624596"
 }

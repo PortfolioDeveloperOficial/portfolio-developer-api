@@ -18,9 +18,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class RetrieveDeveloperServiceTest {
+class RetrieveDeveloperTest {
   @Mock private DeveloperRepository developerRepository;
-  @InjectMocks private RetrieveDeveloperService retrieveDeveloperService;
+  @InjectMocks private RetrieveDeveloper retrieveDeveloper;
 
   @Test
   @DisplayName("Should retrieve a developer")
@@ -31,7 +31,7 @@ class RetrieveDeveloperServiceTest {
     given(developerRepository.findByEmail(PortfolioDeveloperIntegration.EMAIL))
         .willReturn(Optional.of(developerExpected));
 
-    var developer = retrieveDeveloperService.execute(dto);
+    var developer = retrieveDeveloper.execute(dto);
 
     then(developerRepository).should().findByEmail(PortfolioDeveloperIntegration.EMAIL);
     assertThat(developer).usingRecursiveComparison().isEqualTo(developerExpected);
@@ -45,7 +45,7 @@ class RetrieveDeveloperServiceTest {
     given(developerRepository.findByEmail(PortfolioDeveloperIntegration.EMAIL))
         .willReturn(Optional.empty());
 
-    assertThatThrownBy(() -> retrieveDeveloperService.execute(dto))
+    assertThatThrownBy(() -> retrieveDeveloper.execute(dto))
         .isInstanceOf(BadRequestException.class)
         .hasMessage(BadRequestException.DEVELOPER_NOT_EXISTS);
 

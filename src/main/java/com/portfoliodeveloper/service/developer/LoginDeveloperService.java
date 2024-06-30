@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LoginDeveloperService {
   private final DeveloperRepository developerRepository;
-  private final RetrieveDeveloperService retrieveDeveloperService;
+  private final RetrieveDeveloper retrieveDeveloper;
   private final SMPasswordEncoder passwordEncoder;
   private final SendNotificationCodeDeveloperService sendNotification;
 
   public void execute(final Developer.DTO dto) {
-    var developer = this.retrieveDeveloperService.execute(dto);
+    var developer = this.retrieveDeveloper.execute(dto);
 
     String code = CodeGenerator.generate();
 

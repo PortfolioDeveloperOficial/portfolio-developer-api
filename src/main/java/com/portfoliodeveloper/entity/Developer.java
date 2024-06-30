@@ -1,5 +1,6 @@
 package com.portfoliodeveloper.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.portfoliodeveloper.enumeration.Gender;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -69,8 +70,32 @@ public class Developer {
         .build();
   }
 
+  public DTO toDTO() {
+    return DTO.builder()
+        .id(id)
+        .pdi(pdi)
+        .name(name)
+        .email(email)
+        .phone(phones)
+        .birthDate(birthDate)
+        .gender(gender)
+        .imageUrl(photo)
+        .bio(bio)
+        .street(street)
+        .number(number)
+        .neighborhood(neighborhood)
+        .cep(cep)
+        .city(city)
+        .state(state)
+        .country(country)
+        .linkedin(linkedin)
+        .github(github)
+        .build();
+  }
+
   @Data
   @Builder
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   public static class DTO {
     private UUID id;
     private String pdi;
@@ -91,5 +116,9 @@ public class Developer {
     private String country;
     private String linkedin;
     private String github;
+
+    public static DTO of(String email) {
+      return DTO.builder().email(email).build();
+    }
   }
 }

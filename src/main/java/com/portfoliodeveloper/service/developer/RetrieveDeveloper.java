@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class RetrieveDeveloperService {
+public class RetrieveDeveloper {
   private final DeveloperRepository developerRepository;
 
   public Developer execute(final Developer.DTO dto) {

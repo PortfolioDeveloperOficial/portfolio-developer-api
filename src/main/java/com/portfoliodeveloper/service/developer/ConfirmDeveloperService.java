@@ -14,10 +14,10 @@ import org.springframework.stereotype.Service;
 public class ConfirmDeveloperService {
   private final AuthenticateUser authenticateUser;
   private final GenerateToken generateToken;
-  private final RetrieveDeveloperService retrieveDeveloperService;
+  private final RetrieveDeveloper retrieveDeveloper;
 
   public Token execute(final Developer.DTO dto) {
-    var developer = this.retrieveDeveloperService.execute(dto);
+    var developer = this.retrieveDeveloper.execute(dto);
 
     this.authenticate(Developer.create(dto));
 
@@ -36,7 +36,7 @@ public class ConfirmDeveloperService {
     final var tokenInput =
         GenerateToken.Input.builder()
             .subject(developer.getEmail())
-            .expiresAt(Instant.now().plusSeconds(3600))
+            .expiresAt(Instant.now().plusSeconds(60 * 60 * 24 * 30))
             .build();
 
     return generateToken.execute(tokenInput);
