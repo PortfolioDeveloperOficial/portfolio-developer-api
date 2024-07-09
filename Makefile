@@ -15,8 +15,8 @@ db-validate:
 
 # create the containers for development environment
 app-up:
-	docker-compose -p seniority-meter-environment up -d
+	docker compose -p portfolio-developer-env up -d
 
 # remove the containers
 app-down:
-	docker-compose -p seniority-meter-environment down
+	docker compose -p portfolio-developer-env down

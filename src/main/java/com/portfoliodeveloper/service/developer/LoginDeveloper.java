@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class LoginDeveloperService {
+public class LoginDeveloper {
   private final DeveloperRepository developerRepository;
   private final RetrieveDeveloper retrieveDeveloper;
   private final SMPasswordEncoder passwordEncoder;

@@ -28,13 +28,13 @@ public class Developer {
   private String name;
   private String email;
   @Setter private String code;
-  private String phones;
+  private String phone;
   private LocalDate birthDate;
 
   @Enumerated(EnumType.STRING)
   private Gender gender;
 
-  private String photo;
+  private String imageUrl;
   private String bio;
   private String street;
   private String number;
@@ -53,10 +53,10 @@ public class Developer {
         .name(dto.getName())
         .email(dto.getEmail())
         .code(dto.getCode())
-        .phones(dto.getPhone())
+        .phone(dto.getPhone())
         .birthDate(dto.getBirthDate())
         .gender(dto.getGender())
-        .photo(dto.getImageUrl())
+        .imageUrl(dto.getImageUrl())
         .bio(dto.getBio())
         .street(dto.getStreet())
         .number(dto.getNumber())
@@ -73,13 +73,14 @@ public class Developer {
   public DTO toDTO() {
     return DTO.builder()
         .id(id)
+            .code(code)
         .pdi(pdi)
         .name(name)
         .email(email)
-        .phone(phones)
+        .phone(phone)
         .birthDate(birthDate)
         .gender(gender)
-        .imageUrl(photo)
+        .imageUrl(imageUrl)
         .bio(bio)
         .street(street)
         .number(number)
@@ -119,6 +120,30 @@ public class Developer {
 
     public static DTO of(String email) {
       return DTO.builder().email(email).build();
+    }
+
+    public Developer toEntity() {
+      return Developer.builder()
+              .id(id)
+              .code(code)
+              .pdi(pdi)
+              .name(name)
+              .email(email)
+              .phone(phone)
+              .birthDate(birthDate)
+              .gender(gender)
+              .imageUrl(imageUrl)
+              .bio(bio)
+              .street(street)
+              .number(number)
+              .neighborhood(neighborhood)
+              .cep(cep)
+              .city(city)
+              .state(state)
+              .country(country)
+              .linkedin(linkedin)
+              .github(github)
+              .build();
     }
   }
 }

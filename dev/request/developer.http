@@ -1,5 +1,15 @@
 ### Developer Retrieve Logged
-GET http://localhost:8080/api/v1/developers
+GET http://localhost:8080/api/v1/developers/logged
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {{accesToken}}
+
+###
+PUT http://localhost:8080/api/v1/developers/f840bb44-99ea-454b-8c25-764a7a139e8e
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{accesToken}}
+
+{
+  "github": "https://github.com/LuizFernandesOliveira"
+}

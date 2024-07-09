@@ -2,7 +2,7 @@ package com.portfoliodeveloper.controller.auth;
 
 import com.portfoliodeveloper.controller.Resource;
 import com.portfoliodeveloper.entity.Developer;
-import com.portfoliodeveloper.service.developer.LoginDeveloperService;
+import com.portfoliodeveloper.service.developer.LoginDeveloper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Tag(name = "Sign", description = "Authentication API")
 public class SignInController implements Resource {
-  private final LoginDeveloperService loginDeveloperService;
+  private final LoginDeveloper loginDeveloper;
 
   @PostMapping(SIGN_IN)
   @Operation(summary = "Login a new developer")
@@ -27,6 +27,6 @@ public class SignInController implements Resource {
         @ApiResponse(responseCode = "500", description = "Internal server error")
       })
   public void execute(@RequestBody final Developer.DTO dto) {
-    this.loginDeveloperService.execute(dto);
+    this.loginDeveloper.execute(dto);
   }
 }
